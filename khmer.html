@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Coffee - ភាសាខ្មែរ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Load English website -->
+    <iframe id="starbucksPage" src="index.html"></iframe>
+
+    <script>
+        const frame = document.getElementById("starbucksPage");
+
+        frame.onload = function () {
+            const doc = frame.contentDocument;
+
+            doc.documentElement.lang = "km";
+            doc.title = "Starbucks Coffee - ភាសាខ្មែរ";
+
+            const translations = {
+                "Home": "ទំព័រដើម",
+                "Menu": "ម៉ឺនុយ",
+                "Drink": "ភេសជ្ជៈ",
+                "Cold": "ត្រជាក់",
+                "Hot": "ក្តៅ",
+                "Frappe": "ហ្វ្រាប៉េ",
+                "Bakery": "នំ និងអាហារសម្រន់",
+                "Bread": "នំប៉័ង",
+                "Cake": "នំខេក",
+                "Combo": "ឈុតពិសេស",
+                "About Us": "អំពីយើង",
+                "Contact Us": "ទំនាក់ទំនងយើង",
+                "Drinks": "ភេសជ្ជៈ",
+                "Cold Drinks": "ភេសជ្ជៈត្រជាក់",
+                "Hot Drinks": "ភេសជ្ជៈក្តៅ",
+                "Frappuccino": "ហ្វ្រាប៉េ",
+                "Our best selling this week": "ផលិតផលលក់ដាច់ប្រចាំសប្តាហ៍",
+                "Add to cart": "បន្ថែមទៅកន្ត្រក",
+                "Price: 3$ up": "តម្លៃចាប់ពី 3$ ឡើងទៅ",
+                "Our shop location": "ទីតាំងហាងរបស់យើង",
+                "Find our shop": "ស្វែងរកទីតាំងហាង",
+                "Shop": "ហាង",
+                "Policy": "គោលការណ៍",
+                "Customer Service": "សេវាកម្មអតិថិជន",
+                "All Products": "ផលិតផលទាំងអស់",
+                "Shipping & Returns": "ការដឹកជញ្ជូន និងការប្រគល់ត្រឡប់",
+                "New": "ថ្មីៗ",
+                "Store Policy": "គោលការណ៍ហាង",
+                "Catagories": "ប្រភេទផលិតផល",
+                "Payment Methods": "វិធីសាស្ត្រទូទាត់ប្រាក់",
+                "Best Sellers": "ផលិតផលលក់ដាច់",
+                "FAQ": "សំណួរដែលសួរញឹកញាប់",
+                "Email:": "អ៊ីមែល:"
+            };
+
+            const walker = doc.createTreeWalker(
+                doc.body,
+                NodeFilter.SHOW_TEXT
+            );
+
+            let node;
+
+            while (node = walker.nextNode()) {
+                const originalText = node.nodeValue;
+                const trimmedText = originalText.trim();
+
+                if (translations[trimmedText]) {
+                    node.nodeValue = originalText.replace(
+                        trimmedText,
+                        translations[trimmedText]
+                    );
+                }
+            }
+
+            // Fix About and Contact links
+            doc.querySelectorAll("a").forEach(link => {
+                const href = link.getAttribute("href");
+
+                if (href === "#about us") {
+                    link.setAttribute("href", "#about-us");
+                }
+
+                if (href === "#contact us") {
+                    link.setAttribute("href", "#contact-us");
+                }
+
+                // Make language switching open the full page
+                if (href === "index.html" || href === "khmer.html") {
+                    link.setAttribute("target", "_top");
+                }
+            });
+
+            // Khmer font
+            const khmerStyle = doc.createElement("style");
+
+            khmerStyle.textContent = `
+                body {
+                    font-family:
+                    "Khmer OS Battambang",
+                    "Noto Sans Khmer",
+                    Arial,
+                    sans-serif;
+                }
+            `;
+
+            doc.head.appendChild(khmerStyle);
+        };
+    </script>
+
+</body>
+</html>

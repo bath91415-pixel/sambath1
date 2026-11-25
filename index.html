@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f5">
+  <title>My Princess ♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+  <main class="site">
+    <header class="topbar">
+      <div class="brand">♡ My Princess</div>
+      <span class="tiny-heart">made with love</span>
+    </header>
+
+    <section class="screen active" id="welcome">
+      <div class="sticker">૮ ˶ᵔ ᵕ ᵔ˶ ა</div>
+      <p class="eyebrow">A little surprise for you</p>
+      <h1>Hello, <span>My Princess</span> 👸</h1>
+      <p class="intro">I made something special just for you.<br>Are you ready to open it?</p>
+      <button class="primary" data-go="test">Open your surprise <span>♡</span></button>
+      <p class="footnote">psst… you're my favorite person.</p>
+    </section>
+
+    <section class="screen" id="test">
+      <div class="sticker">૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა</div>
+      <p class="eyebrow">A tiny love quiz</p>
+      <h2>How much do you love me?</h2>
+      <p class="intro">Answer these little questions honestly, princess.</p>
+      <div class="progress"><span id="progressBar"></span></div>
+      <p class="question-count" id="questionCount">Question 1 of 4</p>
+      <div class="question-card">
+        <h3 id="questionText">Do I make you smile?</h3>
+        <div class="answers">
+          <button class="answer" data-answer="yes">Yes, always ♡</button>
+          <button class="answer" data-answer="yes">Of course! 💗</button>
+        </div>
+      </div>
+      <div class="meter-wrap">
+        <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+        <strong id="score">0%</strong>
+      </div>
+      <p class="small-note" id="quizMessage">Let's see your love score…</p>
+    </section>
+
+    <section class="screen" id="passed">
+      <div class="big-heart">💗</div>
+      <p class="eyebrow">The results are in</p>
+      <h2>You passed the love test!</h2>
+      <p class="score-big">100%</p>
+      <p class="intro">I knew it! Your surprises are waiting, princess.</p>
+      <button class="primary" data-go="gifts">See my surprises 🎁</button>
+    </section>
+
+    <section class="screen" id="gifts">
+      <p class="eyebrow">Choose a little present</p>
+      <h2>Three surprises for you</h2>
+      <p class="intro">Tap each gift to open it.</p>
+      <div class="gift-grid">
+        <button class="gift" data-gift="bouquet"><span>🎁</span><b>Gift 1</b><small>A flower for you</small></button>
+        <button class="gift" data-gift="letter"><span>🎁</span><b>Gift 2</b><small>A little letter</small></button>
+        <button class="gift" data-gift="promise"><span>🎁</span><b>Gift 3</b><small>A promise</small></button>
+      </div>
+      <p class="small-note" id="giftHint">Open all three if you can! ♡</p>
+    </section>
+
+    <section class="screen" id="bouquet">
+      <p class="eyebrow">Just for you</p>
+      <h2>Your Bouquet 💐</h2>
+      <p class="intro">If I could, I'd give you flowers every day.</p>
+      <div class="bouquet-art" aria-label="Bouquet of flowers">💐</div>
+      <div class="message-card">A bouquet for the prettiest princess. May your days always be filled with happiness, warmth, and love. 🌷</div>
+      <button class="primary" data-go="gifts">Back to gifts</button>
+    </section>
+
+    <section class="screen" id="letter">
+      <p class="eyebrow">A message from my heart</p>
+      <h2>Letter From My Heart 💌</h2>
+      <article class="letter">
+        <p>To My Princess,</p>
+        <p>I just want you to know how special you are to me. Your smile makes ordinary days brighter, and your presence makes everything feel a little better.</p>
+        <p>Thank you for being you. I hope this little surprise reminds you that you are loved, appreciated, and precious to me.</p>
+        <p>Whenever you have a hard day, remember that someone is always wishing you happiness and cheering for you.</p>
+        <p class="signature">With all my love, ♡<br><strong>Your biggest fan</strong></p>
+      </article>
+      <button class="primary" data-go="gifts">Back to gifts</button>
+    </section>
+
+    <section class="screen" id="promise">
+      <div class="big-heart">🫶</div>
+      <p class="eyebrow">One little promise</p>
+      <h2>My promise to you</h2>
+      <div class="message-card">I promise to keep choosing kindness, to listen to you, to cheer for your dreams, and to keep finding little ways to make you smile. ♡</div>
+      <button class="primary" data-go="gifts">Back to gifts</button>
+    </section>
+
+    <footer>Made especially for My Princess <span>♡</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
